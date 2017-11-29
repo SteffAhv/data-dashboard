@@ -49,7 +49,7 @@ var loadPage = function() {
 // generación      arrSede[sede][generacion] = arrSede[sede][generacion] || { total: 0 };
 //                                             valida si existe sino { total: 0};
 // active          arrSede[sede][generacion].total++;
-// que me vote puros array
+
 function studentGeneration() {
   var arrSede = [];
   for (var sede in data) {
@@ -65,7 +65,7 @@ function studentGeneration() {
       }
     }
   }
-  return arrSede;
+  return console.log(arrSede);
 }
   
 studentGeneration();
@@ -89,10 +89,39 @@ loadPage();
 
 
 // extrayendo todas las fotos de las alumnas
-for (var prop in data) {
-  for (var generation in prop[data]) {
-      
+// for (var props in data) {
+//   // console.log(props);
+//   for (var generation in data[props]) {
+//     var tmpgeneration = data[props][generation];
+//     // console.log(generation);
+//     for (var indexStudent in tmpgeneration.students) {
+//     // console.log(studiante);
+//       var tmpData = tmpgeneration.students[indexStudent]['photo'];
+//       console.log(tmpData);
+//     }
+//   }
+// }
+
+// Porcentaje de desercion de estudiantes
+
+function studentsDesert() {
+  var studentDesert = 0;
+  var total = 0;
+  for (var props in data) {
+    for (var generation in data[props]) {
+      var tmpgeneration = data[props][generation];
+      for (var indexStudent in tmpgeneration.students) {
+        if (tmpgeneration.students[indexStudent]['active'] === true);
+        else {
+          studentDesert++;
+        }
+        total++;
+      }
+    }
   }
+  return Math.floor((studentDesert / total) * 100);
 }
+console.log(studentsDesert());
+
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
