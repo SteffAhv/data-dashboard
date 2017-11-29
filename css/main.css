@@ -43,7 +43,7 @@ header ul {
 header .logo {
   width: 500px;
   height: 65px;
-  transform: translateX(45%); 
+  transform: translateX(45%);
   display: inline-block;
 }
 header #icon-menu {
@@ -53,7 +53,7 @@ header #icon-menu {
 #wrapper {
   width: 100%;
   display: flex;
-  height: 1750px; 
+  height: 1750px;
 }
 /*Estilos del Nav*/
 
@@ -131,7 +131,7 @@ main {
   vertical-align: top;
   padding:15px;
   border-radius: 8px;
-  
+
 }
 .search-students {
   display:inline-block;
@@ -141,4 +141,12 @@ main {
 form .fa-search {
   padding: 10px;
 
+}
+/*probando la rama menur*/
+.black3{
+  background-color: black;
+  padding: 150px;;
+  width:110%;
+  /*height:100px;*/
+  margin: 3px;
 }
