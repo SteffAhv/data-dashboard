@@ -124,6 +124,36 @@ function studentsDesert() {
 console.log(studentsDesert());
 // el dato que devuelve la funcion 53;
 
+// % de estudiantes satisfechas con laboratoria
+function promSprintStudent() {
+  var totalCumple = 0; // no es necesario
+  var totalSupera = 0;
+  var totalNoSupera = 0;
+  var totalGeneral = 0;
+  var total = 0;
+  for (var prop in data) { // obtengo la sede
+    for (var generation in data[prop]) { // obtengo la generacion 2016-2
+      var tmpGeneration = data[prop][generation]; // obtengo students y rating
+      for (var indexRating in tmpGeneration.ratings) { // obtengo rating
+        var tmpRatings = tmpGeneration.ratings[indexRating]; // obtengo todos los ratings
+        for (var arrStudent in tmpRatings.student) { // obtengo el array student
+          var nota = tmpRatings.student[arrStudent]; // obtengo el nro de notas
+          if (arrStudent === 'supera') {
+            totalSupera += nota; // cantidad de alumnas que superan acumulado
+          } else if (arrStudent === 'cumple') {
+            totalCumple += nota;
+          } else if (arrStudent === 'no-cumple') {
+            totalNoSupera += nota;
+          }
+          totalGeneral = (totalSupera + totalCumple + totalNoSupera);
+          total = Math.floor(((totalCumple + totalSupera) / totalGeneral) * 100);
+        }
+      }
+    }
+  }
+  console.log(total);
+}
+promSprintStudent();
 
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
