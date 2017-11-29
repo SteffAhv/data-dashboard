@@ -70,11 +70,29 @@ function studentGeneration() {
   
 studentGeneration();
 
+// lo que devuelve la funcion
+// [ AQP: [ '2016-2': { total: 7 }, '2017-1': { total: 8 } ],
+// CDMX: [ '2017-1': { total: 9 }, '2017-2': { total: 21 } ],
+// LIM: [ '2016-2': { total: 16 },
+//   '2017-1': { total: 12 },
+//   '2017-2': { total: 6 } ],
+// SCL: [ '2016-2': { total: 3 },
+//   '2017-1': { total: 14 },
+//   '2017-2': { total: 26 } ] ]
+
 var p = document.getElementById('prueba');
 var div = document.getElementById('container-teachers');
 div.appendChild(p);
 
 alert('probando rama de funcionalidad');
 loadPage();
+
+
+// extrayendo todas las fotos de las alumnas
+for (var prop in data) {
+  for (var generation in prop[data]) {
+
+  }
+}
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
