@@ -102,8 +102,8 @@ loadPage();
 //   }
 // }
 
-// Porcentaje de desercion de estudiantes
 
+// Porcentaje de desercion de estudiantes
 function studentsDesert() {
   var studentDesert = 0;
   var total = 0;
@@ -122,6 +122,8 @@ function studentsDesert() {
   return Math.floor((studentDesert / total) * 100);
 }
 console.log(studentsDesert());
+// el dato que devuelve la funcion 53;
+
 
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
