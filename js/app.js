@@ -91,7 +91,7 @@ loadPage();
 // extrayendo todas las fotos de las alumnas
 for (var prop in data) {
   for (var generation in prop[data]) {
-
+      
   }
 }
 // Puedes hacer uso de la base de datos a través de la variable `data`
