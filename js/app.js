@@ -42,7 +42,39 @@ var loadPage = function() {
   }
 };
 
-alert('probando rama de');
+// El total de estudiantes presentes por sede y generación.
+
+
+// sede            arrSede[sede] = arrSede[sede] || {};
+// generación      arrSede[sede][generacion] = arrSede[sede][generacion] || { total: 0 };
+//                                             valida si existe sino { total: 0};
+// active          arrSede[sede][generacion].total++;
+// que me vote puros array
+function studentGeneration() {
+  var arrSede = [];
+  for (var sede in data) {
+    arrSede[sede] = arrSede[sede] || [];
+    for (var generacion in data[sede]) {
+      var tmpgeneracion = data[sede][generacion];
+      arrSede[sede][generacion] = arrSede[sede][generacion] || { total: 0 };
+      for (var indexStudent in tmpgeneracion.students) {
+        var tmpdata = tmpgeneracion.students[indexStudent];
+        if (tmpdata.active === true) {
+          arrSede[sede][generacion].total++;
+        }
+      }
+    }
+  }
+  return arrSede;
+}
+  
+studentGeneration();
+
+var p = document.getElementById('prueba');
+var div = document.getElementById('container-teachers');
+div.appendChild(p);
+
+alert('probando rama de funcionalidad');
 loadPage();
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
