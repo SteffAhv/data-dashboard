@@ -7,30 +7,6 @@
     <script src="https://use.fontawesome.com/21b158d175.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">    
     <link rel="stylesheet" href="css/main.css">
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load('current', {packages: ['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-      
-      function drawChart() {
-          var data = new google.visualization.DataTable();
-
-          data.addColumn('string', 'alumnas');
-          data.addColumn('number','count');
-          data.addRows(
-              [
-                ['Alumn Desert', 139],
-                ['Alumn Active', 122]
-              ]
-             );
-          var opciones = {'width':300,
-                          'height':150
-                         }
-          var graphic = new google.visualization.ColumnChart(document.getElementById('column-enrollment'));
-          graphic.draw(data, opciones)
-      }
-    </script>
   </head>
   <body>
     <header>
@@ -66,11 +42,10 @@
                       <div class="graphic inline-elements chart">
                         <div class="graphic-text">
                           <h3>ENROLLMENT</h3>
-                          <div class="inline-elements data-boxes">122<div class="small-font"><br># STUDENTS CURRENTLY<br>ENROLLED</div></div>
-                          <div class="inline-elements data-boxes">53%<div class="small-font"><br>%DROPOUT</div></div>
+                          <div class="inline-elements data-boxes" id="student">122<div class="small-font"><br># STUDENTS CURRENTLY<br>ENROLLED</div></div>
+                          <div class="inline-elements data-boxes" id="student-dropout">53%<div class="small-font"><br>%DROPOUT</div></div>
                         </div>
                         <div class="graphic-img" id="column-enrollment">
-                          <!-- <img src="assets/images/bar-graph.png" alt="bar-graphic"> -->
                         </div>
                       </div>
                       <div class="graphic inline-elements chart">
@@ -133,8 +108,7 @@
                           <div class="inline-elements data-boxes">120<div class="small-font"><br># STUDENTS CURRENTLY<br>ENROLLED</div></div>
                           <div class="inline-elements data-boxes">20%<div class="small-font"><br>%DROPOUT</div></div>
                         </div>
-                        <div class="graphic-img">
-                          <img src="assets/images/bar-graph.png" alt="bar-graphic">
+                        <div class="graphic-img" id="column-StudentsSatisfaction">
                         </div>
                       </div>
                       <div class="graphic inline-elements chart">
@@ -199,5 +173,7 @@
 		<script src="./js/data.js"></script>
 		<!-- Aquí va tus archivos JS -->
     <script src="js/app.js"></script>
+    <!-- Google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   </body>
 </html>

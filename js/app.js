@@ -1,46 +1,87 @@
-
-var showHide = function(e) {
-  var tabSelected = e.target.dataset.tabSelected;
-  var overview = document.getElementById('container-overview');
-  var students = document.getElementById('container-students');
-  var teachers = document.getElementById('container-teachers');
-
-  if (tabSelected === 'tabOverview') {
-    console.log('This is overview section');
-    // ocultar students, teachers  
+window.addEventListener('load', function(e) {
+  var showHide = function(e) {
+    var tabSelected = e.target.dataset.tabSelected;
+    var overview = document.getElementById('container-overview');
+    var students = document.getElementById('container-students');
+    var teachers = document.getElementById('container-teachers');
+  
+    if (tabSelected === 'tabOverview') {
+      console.log('This is overview section');
+      // ocultar students, teachers  
+      students.style.display = 'none';
+      teachers.style.display = 'none';
+      // mostrar solo overview
+      overview.style.display = 'block';
+    } else if (tabSelected === 'tabStudents') {
+      console.log('This is students section');
+      // ocultar overview, teachers
+      overview.style.display = 'none';
+      teachers.style.display = 'none';
+      // mostrar solo students
+      students.style.display = 'block';
+    } else if (tabSelected === 'tabTeachers') {
+      console.log('This is teachers section');
+      // ocultar overview, students 
+      overview.style.display = 'none';
+      students.style.display = 'none';
+      // mostrar solo teachers
+      teachers.style.display = 'block';
+    }
+  };
+  
+  var loadPage = function() {
+    var overview = document.getElementById('container-overview');
+    var students = document.getElementById('container-students');
+    var teachers = document.getElementById('container-teachers'); 
+    overview.style.display = 'none';
     students.style.display = 'none';
     teachers.style.display = 'none';
-    // mostrar solo overview
-    overview.style.display = 'block';
-  } else if (tabSelected === 'tabStudents') {
-    console.log('This is students section');
-    // ocultar overview, teachers
-    overview.style.display = 'none';
-    teachers.style.display = 'none';
-    // mostrar solo students
-    students.style.display = 'block';
-  } else if (tabSelected === 'tabTeachers') {
-    console.log('This is teachers section');
-    // ocultar overview, students 
-    overview.style.display = 'none';
-    students.style.display = 'none';
-    // mostrar solo teachers
-    teachers.style.display = 'block';
-  }
-};
+    var tabElements = document.getElementsByClassName('tab');
+    for (var i = 0;i < tabElements.length; i++) {
+      tabElements[i].addEventListener('click', showHide);
+    }
+  };
 
-var loadPage = function() {
-  var overview = document.getElementById('container-overview');
-  var students = document.getElementById('container-students');
-  var teachers = document.getElementById('container-teachers'); 
-  overview.style.display = 'none';
-  students.style.display = 'none';
-  teachers.style.display = 'none';
-  var tabElements = document.getElementsByClassName('tab');
-  for (var i = 0;i < tabElements.length; i++) {
-    tabElements[i].addEventListener('click', showHide);
-  }
-};
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChartEnrollment);
+  google.chart.setOnLoadCallback(drawChartEstudentSatisfaction);
+});
+
+function drawChartEnrollment() {
+  var data = new google.visualization.DataTable();
+  // llamando el dato desde la funcion
+  // var divText = document.getElementById('student');
+  // var divPor = document.getElementById('student-dropout');
+  // divPor.innerHTML = studentsDesert() + '% ';
+
+  data.addColumn('string', 'alumnas');
+  data.addColumn('number', 'count');
+  data.addRows(
+    [
+      ['Alumn Desert', 139],
+      ['Alumn Active', 122]
+    ]
+  );
+  var opciones = {'width': 300,
+    'height': 150
+  };
+  var graphic = new google.visualization.ColumnChart(document.getElementById('column-enrollment'));
+  graphic.draw(data, opciones);
+}
+
+function drawChartEstudentSatisfaction() {
+  var data = new google.visualization.DataTable();
+
+  data.addColumn('string', 'level');
+  data.addColumn('number', 'num');
+  data.addRows([['Alum Satisfaction', 89], ['num', 12]]);
+
+  var option = {'width': 300, 
+    'height': 150};
+  var graphic = new google.visualization.PieChart(document.getElementById('column-StudentsSatisfaction'));
+  graphic.draw(data, option);
+}
+
 
 // El total de estudiantes presentes por sede y generación.
 
@@ -84,7 +125,7 @@ var p = document.getElementById('prueba');
 var div = document.getElementById('container-teachers');
 div.appendChild(p);
 
-alert('probando rama de funcionalidad');
+
 loadPage();
 
 
@@ -204,7 +245,53 @@ function promJedi() {
   // para que me cuente solo dos decimales
   console.log(prom.toFixed(2));
 }
-
 promJedi();
+
+// funcion para calcular el nps
+
+function calcNps() {
+  // declaracion de variables
+  debugger;
+  var count = 0; total = 0; 
+  // obteniendo la sede
+  for (var sede in data) {
+    // obteniendo la generacion
+    for (var generation in data[sede]) {
+      // ingresando a los array students y rating
+      var tmpGeneration = data[sede][generation];
+      console.log(tmpGeneration);
+    }
+  }
+}
+
+calcNps();
+
+// function calcNps() {
+//   // declaracion de variables
+//   var count = 0; total = 0; 
+//   // obteniendo la sede
+//   for (var sede in data) {
+//     // obteniendo la generacion
+//     for (var generation in data[sede]) {
+//       // ingresando a los array students y rating
+//       for (var arr in data[sede][generation]) {
+//         // console.log(arr); // obtengo student y rating
+//         for (var nro in data[sede][generation][arr]) {
+//           for (var arrSprint in data[sede][generation][arr][nro]) {
+//             for (var sprint in data[sede][generation][arr][nro]['sprints']) {
+//               for (var score in data[sede][generation][arr][nro]['sprints']['1']['score']) {
+//                 var scorTech = data[sede][generation][arr][nro]['sprints']['1']['score'];
+//                 var test = Object.values(scorTech);
+//                 console.log(test);
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
