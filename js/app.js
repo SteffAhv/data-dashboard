@@ -47,6 +47,8 @@ window.addEventListener('load', function() {
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChartEnrollment);
   google.charts.setOnLoadCallback(drawChartEstudentSatisfaction);
+  google.charts.setOnLoadCallback(drawPromJedi);
+  google.charts.setOnLoadCallback(drawPromTeacher);
 
   loadPage();
   setTimeout();
@@ -89,6 +91,53 @@ function drawChartEstudentSatisfaction() {
   graphic.draw(data, option);
 }
 
+function drawPromJedi() {
+  var data = new google.visualization.DataTable();
+  // llamando el dato desde la funcion
+  // var divText = document.getElementById('student');
+  // var divPor = document.getElementById('student-dropout');
+  // divPor.innerHTML = promJedi() + '% ';
+
+  data.addColumn('string', 'jedi');
+  data.addColumn('number', 'prom');
+  data.addRows(
+    [
+      ['S1', 1.2],
+      ['S2', 2.3],
+      ['S3', 2.4],
+      ['S4', 3.5]
+    ]
+  );
+  var opciones = {'width': 300,
+    'height': 150
+  };
+  var graphic = new google.visualization.LineChart(document.getElementById('graphic-jedi'));
+  graphic.draw(data, opciones);
+}
+
+function drawPromTeacher() {
+  var data = new google.visualization.DataTable();
+  // llamando el dato desde la funcion
+  // var divText = document.getElementById('student');
+  // var divPor = document.getElementById('student-dropout');
+  // divPor.innerHTML = promTeacher() + '% ';
+
+  data.addColumn('string', 'teacher');
+  data.addColumn('number', 'prom');
+  data.addRows(
+    [
+      ['S1', 1.2],
+      ['S2', 2.3],
+      ['S3', 2.4],
+      ['S4', 3.5]
+    ]
+  );
+  var opciones = {'width': 300,
+    'height': 150
+  };
+  var graphic = new google.visualization.LineChart(document.getElementById('graphic-teacher'));
+  graphic.draw(data, opciones);
+}
 
 // El total de estudiantes presentes por sede y generación.
 
@@ -246,7 +295,7 @@ function promJedi() {
       }
     }
   }
-  // para que me cuente solo dos decimales
+  // para que me cuente solo dos decimales 4.29
   console.log(prom.toFixed(2));
 }
 promJedi();
@@ -271,7 +320,7 @@ function calcNps() {
         var test2 = tmpGeneration.students[indexSprint]['sprints'][0];
         console.log(test2);
         for (var i = 0; i < test.length; i++) {
-          arrTest.push[i];
+          arrTest.push(test[i]);
         }
         // console.log(arrTest);
       }
