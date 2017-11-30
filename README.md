@@ -41,7 +41,8 @@
 
 ![slack](assets/images/slack.png)
 
-3. whatsapp
+3. WhatsApp
+
 
 </ul>
 
@@ -56,3 +57,15 @@ https://www.youtube.com/watch?v=QRN91T8rqW4
 https://www.w3schools.com/howto/howto_google_charts.asp
 
 http://jsonviewer.stack.hu/
+
+https://youtu.be/nEKbaKIat1g
+
+https://www.youtube.com/watch?v=Oh8bHJZn-q4
+
+https://es.stackoverflow.com/questions/2795/c%C3%B3mo-insertar-varias-gr%C3%A1ficas-de-google-charts-en-la-misma-p%C3%A1gina
+
+## Guia utilizada
+
+[Dasboard laboratoria](https://marvelapp.com/104ejifg/screen/33742285)
+
+[Base de datos](https://github.com/Laboratoria-learning/data-dashboard/blob/master/js/data.js)
