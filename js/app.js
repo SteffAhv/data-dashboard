@@ -95,7 +95,7 @@ function drawPromJedi() {
   var data = new google.visualization.DataTable();
   // llamando el dato desde la funcion
   // var divText = document.getElementById('student');
-  // var divPor = document.getElementById('student-dropout');
+  // var divPor = document.getElementById('jedi-dropout');
   // divPor.innerHTML = promJedi() + '% ';
 
   data.addColumn('string', 'jedi');
