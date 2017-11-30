@@ -1,4 +1,4 @@
-window.addEventListener('load', function(e) {
+window.addEventListener('load', function() {
   var showHide = function(e) {
     var tabSelected = e.target.dataset.tabSelected;
     var overview = document.getElementById('container-overview');
@@ -42,9 +42,12 @@ window.addEventListener('load', function(e) {
     }
   };
 
+  // buscar porque solo aparece una sola img
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChartEnrollment);
-  google.chart.setOnLoadCallback(drawChartEstudentSatisfaction);
+  google.charts.setOnLoadCallback(drawChartEstudentSatisfaction);
+
+  loadPage();
 });
 
 function drawChartEnrollment() {
@@ -73,8 +76,8 @@ function drawChartEstudentSatisfaction() {
   var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'level');
-  data.addColumn('number', 'num');
-  data.addRows([['Alum Satisfaction', 89], ['num', 12]]);
+  data.addColumn('function', 'num');
+  data.addRows(['Alum Satisfaction', studentSatisfied()]);
 
   var option = {'width': 300, 
     'height': 150};
@@ -126,7 +129,6 @@ var div = document.getElementById('container-teachers');
 div.appendChild(p);
 
 
-loadPage();
 
 
 // extrayendo todas las fotos de las alumnas
@@ -252,14 +254,25 @@ promJedi();
 function calcNps() {
   // declaracion de variables
   debugger;
-  var count = 0; total = 0; 
+  var count = 0; total = 0, arrTest = []; 
   // obteniendo la sede
   for (var sede in data) {
     // obteniendo la generacion
     for (var generation in data[sede]) {
       // ingresando a los array students y rating
       var tmpGeneration = data[sede][generation];
-      console.log(tmpGeneration);
+      for (indexSprint in tmpGeneration.students) {
+        // obtengo los sprint: 0,1,2,3
+        var test = tmpGeneration.students[indexSprint]['sprints'];
+        // obtengo los datos del primer sprint
+        for (var j = 0; )
+        var test2 = tmpGeneration.students[indexSprint]['sprints'][0]['score'];
+        console.log(test2);
+        for (var i = 0; i < test.length; i++) {
+          arrTest.push[i];
+        }
+        // console.log(arrTest);
+      }
     }
   }
 }
