@@ -178,6 +178,33 @@ function promTeacher() {
 }
 promTeacher();
 
+// funcion para calcular el promedio de los jedi
+function promJedi() {
+  // creación de variables numericas
+  var countJedi = 0, prom = 0; total = 0;
+  // obteniendo la sede: AQP, CDM, LIM, SCH
+  for (var sede in data) {
+    // obteniendo la generacion: 2016-2, 2017-1
+    for (var generation in data[sede]) {
+      // creando una variable donde se obtiene los array: students y ratings
+      var tmpGeneration = data[sede][generation];
+      // obteniendo el ratings
+      for (var indexRating in tmpGeneration.ratings) {
+        // creando la variable para almacenar las notas de los jedi
+        var scoreJedi = tmpGeneration.ratings[indexRating]['jedi'];
+        // sumando todas las notas de los jedi
+        total += scoreJedi;
+        // contando la cantidad de notas de los jedi
+        countJedi++;
+        // calculando el promedio
+        prom = total / countJedi;
+      }
+    }
+  }
+  // para que me cuente solo dos decimales
+  console.log(prom.toFixed(2));
+}
 
+promJedi();
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
