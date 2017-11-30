@@ -11,3 +11,48 @@
 <li>El porcentaje que representa el dato anterior en relación al total de estudiantes.</li>
 <li>El Net Promoter Score (NPS) promedio de los sprints cursados.</li>
 <li>El NPS se calcula en base a la encuesta que las estudiantes responden al respecto de la recomendación que darían de Laboratoria, bajo la siguiente fórmula</li>
+
+**Formula utilizada**
+
+[Promoters] = [Respuestas 9 o 10] / [Total respuestas] * 100
+[Passive] = [Respuestas 7 u 8] / [Total respuestas] * 100
+[Detractors] = [Respuestas entre 1 y 6] / [Total respuestas] * 100
+
+[NPS] = [Promoters] - [Detractors]
+
+## Herramientas utilizadas :
+<ul>
+<li>html</li>
+<li>css</li>
+<li>javascript</li>
+<li>assets</li>
+<li>.eslintrc</li>
+</ul>
+
+## Avances
+
+<ul>
+
+1. Trello
+
+![trello](assets/images/trello.png)
+
+2. Slack
+
+![slack](assets/images/slack.png)
+
+3. whatsapp
+
+</ul>
+
+## Librerias
+[Google Charts](https://developers.google.com/chart/interactive/docs/quick_start)
+
+
+## Bibliografia
+
+https://www.youtube.com/watch?v=QRN91T8rqW4
+
+https://www.w3schools.com/howto/howto_google_charts.asp
+
+http://jsonviewer.stack.hu/
