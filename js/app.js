@@ -43,13 +43,17 @@ window.addEventListener('load', function() {
   };
 
   // buscar porque solo aparece una sola img
+  
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChartEnrollment);
   google.charts.setOnLoadCallback(drawChartEstudentSatisfaction);
 
   loadPage();
+  setTimeout();
 });
 
+setTimeout(function() { drawChartEnrollment(), drawChartEstudentSatisfaction();
+}, 1000);
 function drawChartEnrollment() {
   var data = new google.visualization.DataTable();
   // llamando el dato desde la funcion
@@ -127,8 +131,6 @@ studentGeneration();
 var p = document.getElementById('prueba');
 var div = document.getElementById('container-teachers');
 div.appendChild(p);
-
-
 
 
 // extrayendo todas las fotos de las alumnas
@@ -265,8 +267,8 @@ function calcNps() {
         // obtengo los sprint: 0,1,2,3
         var test = tmpGeneration.students[indexSprint]['sprints'];
         // obtengo los datos del primer sprint
-        for (var j = 0; )
-        var test2 = tmpGeneration.students[indexSprint]['sprints'][0]['score'];
+        // for (var j = 0; )
+        var test2 = tmpGeneration.students[indexSprint]['sprints'][0];
         console.log(test2);
         for (var i = 0; i < test.length; i++) {
           arrTest.push[i];
