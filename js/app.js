@@ -46,15 +46,16 @@ window.addEventListener('load', function() {
   
   google.charts.load('current', {packages: ['corechart']});
   google.charts.setOnLoadCallback(drawChartEnrollment);
-  google.charts.setOnLoadCallback(drawChartEstudentSatisfaction);
   google.charts.setOnLoadCallback(drawPromJedi);
   google.charts.setOnLoadCallback(drawPromTeacher);
+  google.charts.setOnLoadCallback(drawStudentSatisfied);
 
   loadPage();
   setTimeout();
 });
 
-setTimeout(function() { drawChartEnrollment(), drawChartEstudentSatisfaction();
+setTimeout(function() {
+ drawChartEnrollment(), drawStudentSatisfied();
 }, 1000);
 function drawChartEnrollment() {
   var data = new google.visualization.DataTable();
@@ -78,17 +79,25 @@ function drawChartEnrollment() {
   graphic.draw(data, opciones);
 }
 
-function drawChartEstudentSatisfaction() {
+function drawStudentSatisfied() {
   var data = new google.visualization.DataTable();
 
   data.addColumn('string', 'level');
-  data.addColumn('function', 'num');
-  data.addRows(['Alum Satisfaction', studentSatisfied()]);
+  data.addColumn('num', 'satisfaction');
+  data.addRows(
+    [
+      ['S1', 1.2],
+      ['S2', 2.3],
+      ['S3', 2.4],
+      ['S4', 3.5]
+    ]
+  );
 
-  var option = {'width': 300, 
-    'height': 150};
-  var graphic = new google.visualization.PieChart(document.getElementById('column-StudentsSatisfaction'));
-  graphic.draw(data, option);
+  var opciones = {'width': 300,
+    'height': 150
+  };
+  var graphic = new google.visualization.ColumnChart(document.getElementById('graphic-studentSatisfed'));
+  graphic.draw(data, opciones);
 }
 
 function drawPromJedi() {
@@ -177,9 +186,9 @@ studentGeneration();
 //   '2017-1': { total: 14 },
 //   '2017-2': { total: 26 } ] ]
 
-var p = document.getElementById('prueba');
-var div = document.getElementById('container-teachers');
-div.appendChild(p);
+// var p = document.getElementById('prueba');
+// var div = document.getElementById('container-teachers');
+// div.appendChild(p);
 
 
 // extrayendo todas las fotos de las alumnas
