@@ -125,7 +125,7 @@ console.log(studentsDesert());
 // el dato que devuelve la funcion 53;
 
 // % de estudiantes satisfechas con laboratoria
-function promSprintStudent() {
+function studentSatisfied() {
   var totalCumple = 0; // no es necesario
   var totalSupera = 0;
   var totalNoSupera = 0;
@@ -139,7 +139,7 @@ function promSprintStudent() {
         for (var arrStudent in tmpRatings.student) { // obtengo el array student
           var nota = tmpRatings.student[arrStudent]; // obtengo el nro de notas
           if (arrStudent === 'supera') {
-            totalSupera += nota; // cantidad de alumnas que superan acumulado
+            totalSupera += nota; // cantidad de alumnas que superan
           } else if (arrStudent === 'cumple') {
             totalCumple += nota;
           } else if (arrStudent === 'no-cumple') {
@@ -153,7 +153,31 @@ function promSprintStudent() {
   }
   console.log(total);
 }
-promSprintStudent();
+studentSatisfied(); // devuelve 89% 
+
+// funcion para calcular el promedio de los profesores
+function promTeacher() {
+  var countTeacher = 0;
+  var prom = 0;
+  var total = 0;
+  for (var prop in data) { // obtengo la sede
+    for (var generation in data[prop]) { // obtengo la generacion 2016-2
+      var tmpGeneration = data[prop][generation]; // obtengo students y rating
+      for (var indexRating in tmpGeneration.ratings) { // obtengo rating
+        var scoreTeacher = tmpGeneration.ratings[indexRating]['teacher']; // obtengo todos las notas de los profesores
+        // console.log(tmpRatings);
+        total += scoreTeacher;
+        countTeacher++;
+        // devuelve 3.9931....
+        prom = total / countTeacher;
+      }
+    }
+  }
+  // para que cortar a solo 2 decimales 3.99
+  console.log(prom.toFixed(2));
+}
+promTeacher();
+
 
 // Puedes hacer uso de la base de datos a través de la variable `data`
 // console.log(data);
